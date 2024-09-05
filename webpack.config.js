@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: {
+        signup: './src/index.js',
+        login: './src/login.js'
+    },
     devtool: 'inline-source-map',
     devServer: {
         static: './dist',
@@ -20,8 +23,15 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Form Validation',
+            title: 'Signup',
             template: './src/index.html',
+            excludeChunks: ['login']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Login',
+            template: './src/login.html',
+            filename: 'login.html',
+            chunks: ['login']
         }),
     ],
 

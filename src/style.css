@@ -162,3 +162,7 @@ form div.incorrect label{
 form div.incorrect input {
     border-color: var(--warning-color);
 }
+
+.error-message {
+    color: var(--warning-color);
+}
